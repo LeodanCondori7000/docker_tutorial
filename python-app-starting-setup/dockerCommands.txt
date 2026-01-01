@@ -1,0 +1,8 @@
+docker build -t rng .
+docker run rng
+
+docker run -it rng
+
+docker run -it --name rng rng
+
+docker start -a -i nice_shannon

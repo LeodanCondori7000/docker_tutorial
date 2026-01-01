@@ -1,0 +1,9 @@
+docker build .
+docker run -p 3000:3000 23717cd7ab748a5b51dc6
+-p <host_port>:<container_port>
+docker ps
+docker stop sleepy_turing
+docker run node
+docker ps -a
+docker run -it node
+.exit

@@ -1,0 +1,83 @@
+docker pull hello-world
+
+docker run hello-world
+docker container run hello-world
+
+docker ps
+docker container ps
+docker container ls
+docker ps -a
+docker container ps -a
+docker container ls -a
+
+docker rm nice_feistel
+docker rm 24333901a081
+docker rm -f c8590ee4e5dd 
+docker container prune --> removes all stopped containers
+
+docker rmi hello-world
+
+docker run -d -p 80:80 docker/getting-started
+docker run -d -p 8080:80 --name getting-started docker/getting-started
+
+docker container stop c8590ee4e5dd
+docker stop getting-started
+
+docker container start c8590ee4e5dd
+docker start getting-started
+
+docker image rm docker/getting-started
+
+>-------------------------------------------<
+
+docker pull postgres
+docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+docker container run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+docker container run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5433:5432 postgres
+docker container run \
+    --name postgres-alpha \
+    -e POSTGRES_PASSWORD=mypass1 \
+    -d \
+    -p 5433:5432 \
+    postgres
+
+docker container run \
+    --name postgres-beta \
+    -e POSTGRES_PASSWORD=mypass2 \
+    -d \
+    -p 5434:5432 \
+    postgres:14-alpine3.17
+
+docker logs postgres-beta
+docker container logs postgres-beta
+docker container logs -f postgres-beta
+
+docker container rm -f postgres-beta
+
+>-------------------------------------------<
+
+docker pull mariadb:jammy
+
+docker container run \
+    --name mariadb-alpha \
+    -e MARIADB_RANDOM_ROOT_PASSWORD=yes \
+    -d \
+    -p 3306:3306 \
+    mariadb:jammy
+
+docker container logs mariadb-alpha
+
+docker container run \
+    --name mariadb-beta \
+    -e MARIADB_RANDOM_ROOT_PASSWORD=yes \
+    -d \
+    -p 3307:3306 \
+    mariadb:jammy
+
+docker container logs mariadb-beta
+docker container logs -f mariadb-beta
+2025-12-25 21:07:53+00:00 [Note] [Entrypoint]: GENERATED ROOT PASSWORD: :8OV@mjfw5?O)`~vGz;]Sj1xvr7LcgZl
+:8OV@mjfw5?O)`~vGz;]Sj1xvr7LcgZl
+
+docker image rm mariadb:jammy
+docker image ls

@@ -1,0 +1,56 @@
+FROM node
+
+WORKDIR /app
+
+COPY . /app
+# COPY . ./
+# COPY . .
+RUN npm install
+
+EXPOSE 3000
+
+CMD ["npm", "run", "dev"]
+
+>-------------------------------------------<
+
+FROM node
+
+WORKDIR /app
+
+COPY package.json /app
+
+RUN npm install
+
+COPY . /app
+
+EXPOSE 3000
+
+CMD ["npm", "run", "dev"]
+
+>-------------------------------------------<
+
+docker build -t nodejs-app .
+docker build .
+docker run -p 3000:3000 nodejs-app
+
+>-------------------------------------------<
+
+docker restart confident_goodall
+
+docker run -p 3000:3000 -d nodejs-app
+docker run -p 3000:3000 --name nodejs-app -d nodejs-app
+
+docker attach container_id
+docker container attach container_id
+
+docker detach container_id
+docker container detach container_id
+
+docker logs container_id
+docker container logs container_id
+
+docker logs -f container_id
+docker container logs -f container_id
+
+docker start -a container_id
+docker container start -a container_id
