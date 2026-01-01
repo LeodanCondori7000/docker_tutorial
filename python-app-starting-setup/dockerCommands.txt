@@ -6,3 +6,10 @@ docker run -it rng
 docker run -it --name rng rng
 
 docker start -a -i nice_shannon
+>-------------------------------------------<
+
+docker image prune
+docker rmi image_name
+
+>-------------------------------------------<
+docker run -p 3000:3000 -d --rm image_name
