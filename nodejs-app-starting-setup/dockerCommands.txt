@@ -54,3 +54,10 @@ docker container logs -f container_id
 
 docker start -a container_id
 docker container start -a container_id
+
+>-------------------------------------------<
+docker build -t nodejs_app .
+docker run -p 3000:3000 -d nodejs_app
+
+docker run -p 3000:3000 -d --rm nodejs_app
+
